@@ -38,7 +38,7 @@ const connect = async () => {
   }
   process.exit()
 }
-
+connect()
 const createCustomer = async (name, age) => {
   const customerData = {
     name: name,
@@ -47,19 +47,6 @@ const createCustomer = async (name, age) => {
 
   const customer = await Customer.create(customerData)
   console.log('new customer', customer)
-}
-
-const findCustomers = async () => {
-  const customers = await Customer.find()
-  console.log('Below is a list of customers: ')
-  customers.forEach((elm) => {
-    console.log(`id: ${elm.id} --  Name: ${elm.name}, Age: ${elm.age}`)
-  })
-}
-
-const findCustomer = async () => {
-  const customers = await Customer.find()
-  console.log('All Customers: ', customers)
 }
 
 const updateCustomer = async (id, name, age) => {
@@ -71,10 +58,24 @@ const updateCustomer = async (id, name, age) => {
   )
   console.log('Updated customer:', updatedCustomer)
 }
-connect()
+
+const findCustomer = async () => {
+  const customers = await Customer.find()
+  console.log('All Customers: ', customers)
+}
+
+
 
 const deleteCustomer = async (id) => {
   const idN = id
   const removedCustomer = await Customer.findByIdAndDelete(idN)
   console.log('Removed Customer:', removedCustomer)
+}
+
+const findCustomers = async () => {
+  const customers = await Customer.find()
+  console.log('Below is a list of customers: ')
+  customers.forEach((elm) => {
+    console.log(`id: ${elm.id} --  Name: ${elm.name}, Age: ${elm.age}`)
+  })
 }
