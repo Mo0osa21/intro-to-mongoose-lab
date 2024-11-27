@@ -46,7 +46,7 @@ const createCustomer = async (name, age) => {
   }
 
   const customer = await Customer.create(customerData)
-  console.log('new customer', customer)
+  console.log('Customer Created!')
 }
 
 const updateCustomer = async (id, name, age) => {
@@ -56,7 +56,7 @@ const updateCustomer = async (id, name, age) => {
     { name: name },
     { age: age }
   )
-  console.log('Updated customer:', updatedCustomer)
+  console.log('Customer Updated!')
 }
 
 const findCustomer = async () => {
@@ -64,12 +64,10 @@ const findCustomer = async () => {
   console.log('All Customers: ', customers)
 }
 
-
-
 const deleteCustomer = async (id) => {
   const idN = id
   const removedCustomer = await Customer.findByIdAndDelete(idN)
-  console.log('Removed Customer:', removedCustomer)
+  console.log('Customer Deleted!')
 }
 
 const findCustomers = async () => {
