@@ -51,11 +51,10 @@ const createCustomer = async (name, age) => {
 
 const updateCustomer = async (id, name, age) => {
   const idN = id
-  const updatedCustomer = await Customer.findByIdAndUpdate(
-    idN,
-    { name: name },
-    { age: age }
-  )
+  const updatedCustomer = await Customer.findByIdAndUpdate(idN, {
+    name: name,
+    age: age
+  })
   console.log('Customer Updated!')
 }
 
